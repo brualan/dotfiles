@@ -140,4 +140,8 @@ _unmountComplete()
 }
 complete -F _unmountComplete utils/unmount
 
-source .bashrc_private
+if [[ -f .bashrc_private ]]; then
+	source .bashrc_private
+else
+	echo ".bashrc_private not find. Scripts that requires private info won't work"
+fi
