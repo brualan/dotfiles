@@ -140,6 +140,13 @@ _unmountComplete()
 }
 complete -F _unmountComplete utils/unmount
 
+# for comfortable 256-color work in tty6
+virtual_terminal="$( tty | grep -oE ....$ )"
+case "$virtual_terminal" in tty6)
+    exec fbterm -- bash -c 'TERM=fbterm bash'
+  ;;
+esac
+
 if [[ -f .bashrc_private ]]; then
 	source .bashrc_private
 else
