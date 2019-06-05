@@ -12,12 +12,12 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
+shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE= HISTFILESIZE= # Infinite history.
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -72,39 +72,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -hN --color=auto --group-directories-first'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -116,30 +83,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# to avoid blank screen on start of GoLand in dwm
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# GOPATH
-export PATH=$PATH:$HOME/go/bin
-
-# for putting to history commands executed in tmux
-#export HISTCONTROL=ignoredups:erasedups # avoid duplicates..
-#shopt -s histappend # append history entries..
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # After each command, save and reload history
-_mountComplete()
-{
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(ls /dev/disk/by-label)" -- $cur) )
-}
-complete -F _mountComplete utils/mount
-
-_unmountComplete()
-{
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(ls /media/$(whoami)/)" -- $cur) )
-}
-complete -F _unmountComplete utils/unmount
-
 # for comfortable 256-color work in tty6
 virtual_terminal="$( tty | grep -oE ....$ )"
 case "$virtual_terminal" in tty6)
@@ -147,8 +90,6 @@ case "$virtual_terminal" in tty6)
   ;;
 esac
 
-if [[ -f .bashrc_private ]]; then
-	source .bashrc_private
-else
-	echo ".bashrc_private not find. Scripts that requires private info won't work"
-fi
+[ -f "$HOME/.config/dotfiles/aliasrc" ]         && source "$HOME/.config/dotfiles/aliasrc"    # aliases
+[ -f "$HOME/.config/dotfiles/shortcutrc" ]      && source "$HOME/.config/dotfiles/shortcutrc" # shortcut aliases
+[ -f "$HOME/.config/dotfiles/completionrc" ]    && source "$HOME/.config/dotfiles/completionrc" # custom completion

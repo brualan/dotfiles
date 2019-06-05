@@ -1,0 +1,13 @@
+alias \
+	ls='ls -hN --color=always --group-directories-first' \
+	ll='ls -alF' \
+	la='ls -A' \
+	l='ls' \
+	grep='grep --color=always' \
+	fgrep='fgrep --color=always' \
+	egrep='egrep --color=always' \
+	diff='diff --color=always' \
+	ffmpeg='ffmpeg -hide_banner' \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
