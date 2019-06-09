@@ -90,6 +90,12 @@ case "$virtual_terminal" in tty6)
   ;;
 esac
 
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
 [ -f "$HOME/.config/dotfiles/aliasrc" ]         && source "$HOME/.config/dotfiles/aliasrc"    # aliases
 [ -f "$HOME/.config/dotfiles/shortcutrc" ]      && source "$HOME/.config/dotfiles/shortcutrc" # shortcut aliases
 [ -f "$HOME/.config/dotfiles/completionrc" ]    && source "$HOME/.config/dotfiles/completionrc" # custom completion
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
