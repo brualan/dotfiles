@@ -46,5 +46,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH=$PATH:$HOME/go/bin
 
 
-#export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
-#export LESS=' -R '
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
