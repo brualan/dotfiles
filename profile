@@ -48,3 +48,5 @@ export PATH=$PATH:$HOME/go/bin
 
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
+
+export PATH=$PATH:/usr/local/go/bin
