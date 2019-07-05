@@ -30,7 +30,7 @@ fi
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
-export READER="zathura"
+export READER="mupdf"
 export FILE="lf"
 
 # Home directory clean-up
