@@ -1,0 +1,13 @@
+com.apps.adrcotfas.goodtime
+com.github.gotify
+org.schabi.newpipe
+trikita.obsqr
+it.feio.android.omninotes.foss
+org.sufficientlysecure.keychain
+com.zeapo.pwdstore
+org.videolan.vlc
+com.amaze.filemanager
+com.oF2pks.applicationsinfo
+com.philliphsu.clock2
+org.connectbot
+ru.henridellal.dialer
