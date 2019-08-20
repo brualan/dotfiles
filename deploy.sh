@@ -2,8 +2,17 @@
 rm $HOME/.bashrc
 ln -s $(pwd)/bashrc $HOME/.bashrc
 
+rm $HOME/.profile
+ln -s $(pwd)/profile $HOME/.profile
+
+# vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
 rm $HOME/.vimrc
 ln -s $(pwd)/vimrc $HOME/.vimrc
+mkdir $HOME/.vim/colors
+(cd $HOME/.vim/colors && curl -O https://raw.githubusercontent.com/jakwings/vim-colors/master/colors/moody.vim)
 
 rm $HOME/.tmux.conf
 ln -s $(pwd)/tmux.conf $HOME/.tmux.conf
