@@ -5,6 +5,9 @@ ln -s $(pwd)/bashrc $HOME/.bashrc
 rm $HOME/.profile
 ln -s $(pwd)/profile $HOME/.profile
 
+rm $HOME/.config/user-dirs.dirs
+ln -s $(pwd)/user-dirs.dirs $HOME/.config/user-dirs.dirs
+
 # vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
