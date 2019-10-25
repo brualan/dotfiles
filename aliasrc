@@ -38,4 +38,4 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	r="$READER" \
-	u="find ~/utils -type f -not -path '*/\.*' | sed 's/^.*utils\///g' | fzf | xargs -I "{}" sh -c "~/utils/{}"" \
+	u="find ~/utils -type f -executable -not -path '*/\.*' | sed 's/^.*utils\///g' | fzf | xargs -I "{}" sh -c "~/utils/{}"" \
