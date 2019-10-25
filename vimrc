@@ -10,12 +10,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'Chiel92/vim-autoformat'
+
 
 " golang plugin
 Plugin 'fatih/vim-go'
 Plugin 'buoto/gotests-vim'
 " autocomplete
-Plugin 'Valloric/YouCompleteMe'
 " added nerdtree
 Plugin 'scrooloose/nerdtree'
 
