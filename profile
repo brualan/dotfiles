@@ -50,3 +50,6 @@ export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
 export PATH=$PATH:/usr/local/go/bin
+
+# set caps lock as a secondary escape key
+setxkbmap -option caps:escape
