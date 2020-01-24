@@ -56,10 +56,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+export GIT_PS1_SHOWDIRTYSTATE=1
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot+($debian_chroot)}\[\e[1;34m\]\w\[\e[m\] \[\e[1;34m\]\$\[\e[m\] '
+	PS1='${debian_chroot+($debian_chroot)}\[\e[1;34m\]\w\[\e[m\]$(__git_ps1 " (%s)") \[\e[1;34m\]\$\[\e[m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\w$ '
+	PS1='${debian_chroot:+($debian_chroot)}\w$(__git_ps1 " (%s)") $ '
 fi
 unset color_prompt force_color_prompt
 
