@@ -12,10 +12,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Chiel92/vim-autoformat'
 
-
 " golang plugin
 Plugin 'fatih/vim-go'
 Plugin 'buoto/gotests-vim'
+
 " autocomplete
 " added nerdtree
 Plugin 'scrooloose/nerdtree'
@@ -40,7 +40,8 @@ set splitright
 syntax on
 set autoindent smartindent
 set smarttab 
-colorscheme moody 
+
+colorscheme default
 
 set wildmenu
 set incsearch
@@ -51,3 +52,6 @@ set scrolloff=5
 set number
 set encoding=utf-8
 set langmap=!\\"№\\;%?*ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;!@#$%&*`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+
+map <F6> :setlocal spell! spelllang=ru<CR>
