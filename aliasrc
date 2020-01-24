@@ -25,10 +25,11 @@ cf() {
 }
 
 alias \
-	ls='ls -hN --color=auto --group-directories-first' \
-	ll='ls -alF' \
-	la='ls -A' \
+	ls='ls -vhN --color=auto --group-directories-first' \
+	ll='ls -valF' \
+	la='ls -vA' \
 	l='ls' \
+	lss='du -csh * | sort -h' \
 	grep='grep --color=auto' \
 	fgrep='fgrep --color=auto' \
 	egrep='egrep --color=auto' \
@@ -39,3 +40,4 @@ alias \
 	v="$EDITOR" \
 	r="$READER" \
 	u="find ~/utils -type f -executable -not -path '*/\.*' | sed 's/^.*utils\///g' | fzf | xargs -I \"{}\" sh -c \"~/utils/{}\"" \
+	libreoffice="libreoffice --norestore"
