@@ -1,27 +1,31 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 
 " golang plugin
-Plugin 'fatih/vim-go'
-Plugin 'buoto/gotests-vim'
+Plug 'fatih/vim-go'
+Plug 'buoto/gotests-vim'
+Plug 'mattn/emmet-vim'
+
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+else
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " autocomplete
 " added nerdtree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
+call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -39,7 +43,7 @@ set splitbelow
 set splitright
 syntax on
 set autoindent smartindent
-set smarttab 
+set smarttab
 
 colorscheme default
 

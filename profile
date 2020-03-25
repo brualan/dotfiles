@@ -27,7 +27,7 @@ if [ -f "$HOME/.profile_private" ]; then
 fi
 
 # Default programs:
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="mupdf"
@@ -35,6 +35,7 @@ export FILE="lf"
 
 # Home directory clean-up
 export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
+export LESSHISTFILE="-" # no history file for less
 
 
 
@@ -53,3 +54,5 @@ export PATH=$PATH:/usr/local/go/bin
 
 # set caps lock as a secondary escape key
 setxkbmap -option caps:escape
+
+export PATH="$HOME/.cargo/bin:$PATH"
